@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emma Rove — Turn With The World</title>
+  <title>Emma Rove — Music</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +55,7 @@
     .container {
       position: relative;
       z-index: 2;
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 60px 24px 80px;
       display: flex;
@@ -73,46 +73,6 @@
       animation: fadeIn 1.2s ease both;
     }
 
-    /* Album cover */
-    .album-cover {
-      width: 280px;
-      height: 280px;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(201,168,76,0.3),
-        0 0 40px rgba(201,168,76,0.12),
-        0 20px 60px rgba(0,0,0,0.8);
-      margin-bottom: 40px;
-      animation: riseIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s both;
-      position: relative;
-    }
-
-    .album-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Fallback if no image — ornate placeholder */
-    .album-cover-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(145deg, var(--dark-surface) 0%, #2a2218 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .album-cover-placeholder .ornament {
-      font-size: 48px;
-      color: var(--gold-dim);
-      line-height: 1;
-    }
-
     /* Artist name */
     .artist-name {
       font-family: 'Cinzel', serif;
@@ -121,7 +81,7 @@
       letter-spacing: 0.18em;
       color: var(--cream);
       line-height: 1.1;
-      animation: fadeIn 1s ease 0.5s both;
+      animation: fadeIn 1s ease 0.3s both;
     }
 
     /* Ornamental divider */
@@ -129,8 +89,9 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin: 20px 0;
-      animation: fadeIn 1s ease 0.7s both;
+      margin: 20px 0 36px;
+      width: 100%;
+      animation: fadeIn 1s ease 0.5s both;
     }
 
     .ornament-divider::before,
@@ -151,26 +112,72 @@
       letter-spacing: 0.1em;
     }
 
+    /* Two-album grid */
+    .albums-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      animation: riseIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+    }
+
+    .album-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      flex: 0 0 auto;
+    }
+
+    /* Album cover */
+    .album-cover {
+      width: 220px;
+      height: 220px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(201,168,76,0.3),
+        0 0 40px rgba(201,168,76,0.12),
+        0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    .album-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     /* Album title */
     .album-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
       font-weight: 300;
       color: var(--cream-dim);
       letter-spacing: 0.08em;
-      margin-bottom: 8px;
-      animation: fadeIn 1s ease 0.8s both;
     }
 
     .album-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold-dim);
       font-weight: 300;
-      margin-bottom: 48px;
-      animation: fadeIn 1s ease 0.9s both;
+    }
+
+    /* New release badge */
+    .new-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 3px 10px;
+      border-radius: 2px;
     }
 
     /* Links section */
@@ -181,7 +188,7 @@
       text-transform: uppercase;
       color: var(--gold-dim);
       margin-bottom: 20px;
-      animation: fadeIn 1s ease 1s both;
+      animation: fadeIn 1s ease 0.8s both;
     }
 
     .links {
@@ -190,7 +197,7 @@
       gap: 12px;
       width: 100%;
       max-width: 400px;
-      animation: fadeIn 1s ease 1.1s both;
+      animation: fadeIn 1s ease 0.9s both;
     }
 
     .link-btn {
@@ -247,33 +254,13 @@
       flex-direction: column;
       align-items: center;
       gap: 16px;
-      animation: fadeIn 1s ease 1.3s both;
+      animation: fadeIn 1s ease 1.1s both;
     }
 
     .bottom-rule {
       width: 80px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-
-    .listening-party {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      animation: fadeIn 1s ease 1.3s both;
-    }
-
-    .listening-party a {
-      color: var(--gold-light);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,168,76,0.4);
-    }
-
-    .listening-party a:hover {
-      color: var(--cream);
     }
 
     .tagline {
@@ -304,9 +291,10 @@
     }
 
     /* Mobile */
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
       .container { padding: 40px 20px 60px; }
-      .album-cover { width: 240px; height: 240px; }
+      .album-cover { width: 180px; height: 180px; }
+      .albums-grid { gap: 24px; }
     }
   </style>
 </head>
@@ -315,20 +303,31 @@
 
     <div class="top-rule"></div>
 
-    <div class="album-cover">
-      <!-- Replace src with your actual album cover image path once hosted -->
-      <img src="album-cover.png" alt="Turn With The World — Emma Rove" />
-      <div class="album-cover-placeholder">
-        <div class="ornament">✦</div>
-      </div>
-    </div>
-
     <h1 class="artist-name">Emma Rove</h1>
 
     <div class="ornament-divider"><span>✦</span></div>
 
-    <p class="album-title">Turn With The World</p>
-    <p class="album-subtitle">Debut Album &nbsp;·&nbsp; 2026</p>
+    <!-- Two albums -->
+    <div class="albums-grid">
+
+      <div class="album-item">
+        <div class="album-cover">
+          <img src="album-cover.png" alt="Turn With The World — Emma Rove" />
+        </div>
+        <p class="album-title">Turn With The World</p>
+        <p class="album-subtitle">Debut Album &nbsp;·&nbsp; 2026</p>
+      </div>
+
+      <div class="album-item">
+        <div class="album-cover">
+          <img src="ancestry-cover.png" alt="Ancestry — Emma Rove" />
+        </div>
+        <p class="album-title">Ancestry</p>
+        <p class="album-subtitle">New Release &nbsp;·&nbsp; 2026</p>
+        <span class="new-badge">New</span>
+      </div>
+
+    </div>
 
     <p class="links-label">Listen &amp; Follow</p>
 
@@ -349,7 +348,7 @@
         YouTube
       </a>
 
-      <a class="link-btn" href="https://silkylotus.bandcamp.com/album/turn-with-the-world" target="_blank" rel="noopener">
+      <a class="link-btn" href="https://silkylotus.bandcamp.com/music" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/></svg>
         Bandcamp
       </a>
@@ -373,8 +372,7 @@
 
     <div class="bottom-section">
       <div class="bottom-rule"></div>
-<!--      <p class="listening-party">🎶 <a href="https://silkylotus.bandcamp.com/merch/turn-with-the-world-listening-party" target="_blank" rel="noopener">Listening Party — This Saturday on Bandcamp</a></p> -->
-      <p class="tagline"><em>Celtic soul. Nine songs. One journey.</em></p>
+      <p class="tagline"><em>Celtic soul. Two albums. One lineage.</em></p>
       <p class="copyright">© 2026 Silky Lotus Music &nbsp;·&nbsp; All rights reserved</p>
     </div>
 
