@@ -55,9 +55,9 @@
     .container {
       position: relative;
       z-index: 2;
-      max-width: 720px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 60px 24px 80px;
+      padding: 40px 24px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,14 +69,14 @@
       width: 120px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin-bottom: 48px;
+      margin-bottom: 24px;
       animation: fadeIn 1.2s ease both;
     }
 
     /* Artist name */
     .artist-name {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 6vw, 3rem);
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
       font-weight: 400;
       letter-spacing: 0.18em;
       color: var(--cream);
@@ -89,7 +89,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin: 20px 0 36px;
+      margin: 10px 0 18px;
       width: 100%;
       animation: fadeIn 1s ease 0.5s both;
     }
@@ -115,10 +115,10 @@
     /* Two-album grid */
     .albums-grid {
       display: flex;
-      gap: 40px;
+      gap: 14px;
       justify-content: center;
       align-items: flex-start;
-      margin-bottom: 48px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
       animation: riseIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s both;
     }
@@ -127,14 +127,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       flex: 0 0 auto;
     }
 
     /* Album cover */
     .album-cover {
-      width: 220px;
-      height: 220px;
+      width: 190px;
+      height: 190px;
       border-radius: 4px;
       overflow: hidden;
       box-shadow:
@@ -154,14 +154,14 @@
     .album-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
       font-weight: 300;
       color: var(--cream-dim);
       letter-spacing: 0.08em;
     }
 
     .album-subtitle {
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold-dim);
@@ -183,37 +183,41 @@
     /* Links section */
     .links-label {
       font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
+      font-size: 0.64rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold-dim);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       animation: fadeIn 1s ease 0.8s both;
     }
 
     .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
       width: 100%;
       max-width: 400px;
       animation: fadeIn 1s ease 0.9s both;
+    }
+
+    .link-btn.wide {
+      grid-column: 1 / -1;
     }
 
     .link-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 14px 24px;
+      gap: 8px;
+      padding: 10px 14px;
       border: 1px solid rgba(201,168,76,0.25);
       border-radius: 2px;
       background: rgba(201,168,76,0.04);
       color: var(--cream);
       text-decoration: none;
       font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       transition: all 0.3s ease;
       position: relative;
@@ -241,19 +245,130 @@
     }
 
     .link-btn .icon {
-      width: 18px;
-      height: 18px;
+      width: 15px;
+      height: 15px;
       opacity: 0.7;
       flex-shrink: 0;
     }
 
-    /* Bottom rule */
-    .bottom-section {
-      margin-top: 56px;
+    /* Watch + Links three-column row */
+    .watch-links-row {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 48px;
+      width: 100%;
+      animation: fadeIn 1s ease 0.8s both;
+    }
+
+    .links-col {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+    }
+
+    .links-col .links-label,
+    .links-col .links {
+      animation: none; /* parent row already animates in */
+    }
+
+    .video-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .video-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .watch-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    .video-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--cream-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* Video thumbnail + tooltip */
+    .video-thumb-link {
+      position: relative;
+      display: block;
+      line-height: 0;
+    }
+
+    .video-thumb {
+      width: 256px;
+      height: 144px;
+      border-radius: 4px;
+      object-fit: cover;
+      display: block;
+      background: var(--dark-surface);
+      box-shadow:
+        0 0 0 1px rgba(201,168,76,0.3),
+        0 0 30px rgba(201,168,76,0.1),
+        0 15px 45px rgba(0,0,0,0.8);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .video-thumb-link:hover .video-thumb {
+      box-shadow:
+        0 0 0 1px rgba(201,168,76,0.6),
+        0 0 40px rgba(201,168,76,0.18),
+        0 15px 45px rgba(0,0,0,0.8);
+      transform: scale(1.02);
+    }
+
+    .video-thumb-link::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      margin-bottom: 10px;
+      background: var(--dark-surface);
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 6px 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 5;
+    }
+
+    .video-thumb-link:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Bottom rule */
+    .bottom-section {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
       animation: fadeIn 1s ease 1.1s both;
     }
 
@@ -265,7 +380,7 @@
 
     .tagline {
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: var(--cream-dim);
       letter-spacing: 0.05em;
       opacity: 0.7;
@@ -290,11 +405,19 @@
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
+    /* Stack the video columns above/below the links on narrower screens */
+    @media (max-width: 900px) {
+      .watch-links-row { flex-direction: column; gap: 40px; }
+      .video-col { gap: 28px; }
+    }
+
     /* Mobile */
     @media (max-width: 520px) {
-      .container { padding: 40px 20px 60px; }
-      .album-cover { width: 180px; height: 180px; }
-      .albums-grid { gap: 24px; }
+      .container { padding: 32px 20px 40px; }
+      .album-cover { width: 150px; height: 150px; }
+      .albums-grid { gap: 12px; }
+      .video-thumb { width: 220px; height: 124px; }
+      .links { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -307,31 +430,63 @@
 
     <div class="ornament-divider"><span>✦</span></div>
 
-    <!-- Two albums -->
-    <div class="albums-grid">
+    <div class="watch-links-row">
 
-      <div class="album-item">
-        <div class="album-cover">
-          <img src="album-cover.png" alt="Turn With The World — Emma Rove" />
+      <!-- Left: two stacked video previews -->
+      <div class="video-col">
+
+        <div class="video-item">
+          <p class="watch-label">Watch</p>
+          <p class="video-title">As I Wander</p>
+          <a class="video-thumb-link" href="https://youtu.be/OxNGRLrl6qs" target="_blank" rel="noopener" data-tooltip="Watch on YouTube">
+            <!-- TODO: replace href above with the direct video URL for "As I Wander" -->
+            <video class="video-thumb" autoplay muted loop playsinline poster="videos/as-i-wander-poster.jpg">
+              <source src="videos/as-i-wander-loop.mp4" type="video/mp4" />
+            </video>
+          </a>
         </div>
-        <p class="album-title">Turn With The World</p>
-        <p class="album-subtitle">Debut Album &nbsp;·&nbsp; 2026</p>
+
+        <div class="video-item">
+          <p class="watch-label">Watch</p>
+          <p class="video-title">Once More</p>
+          <a class="video-thumb-link" href="https://youtu.be/l977b9s2GgM" target="_blank" rel="noopener" data-tooltip="Watch on YouTube">
+            <!-- TODO: replace href above with the direct video URL for "Once More" -->
+            <video class="video-thumb" autoplay muted loop playsinline poster="videos/once-more-poster.jpg">
+              <source src="videos/once-more-loop.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+
       </div>
 
-      <div class="album-item">
-        <div class="album-cover">
-          <img src="ancestry-cover.png" alt="Ancestry — Emma Rove" />
+      <!-- Center: album covers + existing listen & follow links -->
+      <div class="links-col">
+
+        <!-- Two albums -->
+        <div class="albums-grid">
+
+          <div class="album-item">
+            <div class="album-cover">
+              <img src="album-cover.png" alt="Turn With The World — Emma Rove" />
+            </div>
+            <p class="album-title">Turn With The World</p>
+            <p class="album-subtitle">Debut Album &nbsp;·&nbsp; 2026</p>
+          </div>
+
+          <div class="album-item">
+            <div class="album-cover">
+              <img src="ancestry-cover.png" alt="Ancestry — Emma Rove" />
+            </div>
+            <p class="album-title">Ancestry</p>
+            <p class="album-subtitle">New Release &nbsp;·&nbsp; 2026</p>
+            <span class="new-badge">New</span>
+          </div>
+
         </div>
-        <p class="album-title">Ancestry</p>
-        <p class="album-subtitle">New Release &nbsp;·&nbsp; 2026</p>
-        <span class="new-badge">New</span>
-      </div>
 
-    </div>
+        <p class="links-label">Listen &amp; Follow</p>
 
-    <p class="links-label">Listen &amp; Follow</p>
-
-    <div class="links">
+        <div class="links">
 
       <a class="link-btn" href="https://open.spotify.com/artist/6ZCismBUHQzimHjmGOe5mN?si=jj0D9_nZQzKCmTT_DbnzHA" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -363,10 +518,29 @@
         Instagram
       </a>
 
-      <a class="link-btn" href="https://www.tiktok.com/@emmarovemusic" target="_blank" rel="noopener">
+      <a class="link-btn wide" href="https://www.tiktok.com/@emmarovemusic" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
         TikTok
       </a>
+
+        </div>
+      </div>
+
+      <!-- Right: single video preview -->
+      <div class="video-col">
+
+        <div class="video-item">
+          <p class="watch-label">Watch</p>
+          <p class="video-title">Blood and Heather</p>
+          <a class="video-thumb-link" href="https://youtu.be/0KYt1qXVLcQ" target="_blank" rel="noopener" data-tooltip="Watch on YouTube">
+            <!-- TODO: replace href above with the direct video URL for "Blood and Heather" -->
+            <video class="video-thumb" autoplay muted loop playsinline poster="videos/blood-and-heather-poster.jpg">
+              <source src="videos/blood-and-heather-loop.mp4" type="video/mp4" />
+            </video>
+          </a>
+        </div>
+
+      </div>
 
     </div>
 
